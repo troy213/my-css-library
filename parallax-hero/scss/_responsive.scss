@@ -1,0 +1,23 @@
+@include media-md {
+  section {
+    .card {
+      margin: 0 auto;
+      padding: 2em;
+      max-width: 768px;
+      box-shadow: 0 5px 10px rgba(#000, 0.3);
+      border-radius: 5px;
+    }
+  }
+}
+
+@include media-lg {
+  .wrapper {
+    h1 {
+      font-size: 7rem !important;
+    }
+  }
+
+  section {
+    height: 500px;
+  }
+}

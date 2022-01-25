@@ -1,0 +1,53 @@
+@import 'config';
+@import 'responsive';
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+
+  header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+  }
+
+  .background,
+  .foreground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .background {
+    transform: translateZ(-10px) scale(2.025);
+  }
+
+  .foreground {
+    transform: translateZ(-3px) scale(1.3125);
+    object-position: left;
+  }
+
+  h1 {
+    font-size: 5rem;
+    color: white;
+  }
+}
+
+section {
+  margin: 0 auto;
+  padding: 2em;
+  background: white;
+  min-height: 500px;
+
+  h2 {
+    margin-bottom: 1em;
+  }
+}
