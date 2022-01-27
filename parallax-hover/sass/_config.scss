@@ -1,0 +1,29 @@
+$color-primary: #f21905;
+$color-light: #f25a38;
+$color-dark: #a61103;
+$color-accent: #14a4a6;
+$color-accent-2: #1d80f2;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin media-md {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}

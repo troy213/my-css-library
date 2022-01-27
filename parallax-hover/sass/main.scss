@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+@import 'config';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.4;
+}
+
+.container {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.left {
+  background: linear-gradient(to bottom left, $color-light, $color-dark);
+  padding: 3rem 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .logo {
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+
+    & > span {
+      display: block;
+      font-size: 3.5rem;
+
+      & > span {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .text-light {
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+  }
+}
+
+.right {
+  padding: 3rem 2rem;
+  text-align: center;
+
+  & > p {
+    margin-bottom: 1rem;
+  }
+
+  .input-container {
+    .input,
+    button {
+      width: 100%;
+      max-width: 500px;
+      outline: none;
+      padding: 0.5em;
+      margin: 0.5rem 0;
+      font-size: 18px;
+    }
+
+    button {
+      background: $color-primary;
+      color: white;
+      transition: background 200ms ease-in-out;
+      border: 0;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: lighten($color-primary, 20%);
+    }
+  }
+}
+
+@include media-md {
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-container {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+
+    .input {
+      width: 100%;
+    }
+
+    button {
+      flex-basis: 150px;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+}
+
+@include media-lg {
+  .wrapper {
+    height: 100%;
+    flex-direction: row;
+  }
+
+  .left {
+    padding: 5rem;
+    width: 60%;
+    height: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .right {
+    width: 40%;
+    padding: 3rem;
+  }
+
+  .input-container {
+    flex-direction: column;
+
+    button {
+      flex-basis: initial;
+      width: 100%;
+    }
+  }
+
+  .proto-container {
+    clip-path: inset(0 40% 0 0);
+    position: absolute;
+    top: 20%;
+    height: 70%;
+    z-index: 0;
+    width: 100%;
+    pointer-events: none;
+
+    .proto {
+      border: 3px solid $color-light;
+      width: 20%;
+      height: 80%;
+      float: left;
+      margin-left: 1em;
+      transform: translateX(10%);
+    }
+  }
+}
+
+@include media-xl {
+  .left {
+    padding: 10rem;
+    width: 50%;
+  }
+
+  .right {
+    width: 50%;
+  }
+
+  .input-container {
+    flex-direction: row;
+
+    button {
+      flex-basis: 150px;
+    }
+  }
+
+  .proto-container {
+    clip-path: inset(0 50% 0 0);
+  }
+}
