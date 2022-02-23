@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG Animation</title>
+    <style>
+      :root {
+        --dark-color: #4fbbff;
+        --light-color: #ff6969;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        line-height: 1.5;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      /* svg styling */
+
+      svg {
+        cursor: pointer;
+      }
+
+      #dark {
+        fill: var(--dark-color);
+      }
+
+      #light {
+        fill: var(--light-color);
+      }
+
+      #dark1,
+      #dark2,
+      #light1 {
+        transition: all 1s ease;
+      }
+
+      #dark1 {
+        transform: translateX(-50%);
+        opacity: 0;
+      }
+
+      svg:hover #dark1 {
+        transform: translateX(-25%);
+        opacity: 0.7;
+      }
+
+      svg:hover #light1 {
+        transform: translateX(25%);
+      }
+
+      svg:hover #dark2 {
+        transform: translateX(25%);
+        opacity: 0;
+      }
+
+      #skeleton {
+        animation: fadeInUp 2s ease;
+      }
+
+      #bolt g {
+        opacity: 0;
+        animation: dropIn 8s ease forwards;
+        animation-delay: calc(var(--order) * 200ms);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes dropIn {
+        20% {
+          opacity: 0;
+          transform: translateY(-20%);
+        }
+        30%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* svg styling end */
+
+      body {
+        padding: 10% 0;
+      }
+
+      .container {
+        width: 980px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .card h1 {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="triangles">
+            <g id="dark">
+              <path
+                id="dark2"
+                opacity="0.7"
+                d="M79.5 45.6699C82.8333 47.5944 82.8333 52.4056 79.5 54.3301L57 67.3205C53.6667 69.245 49.5 66.8394 49.5 62.9904L49.5 37.0096C49.5 33.1606 53.6667 30.755 57 32.6795L79.5 45.6699Z"
+              />
+              <!-- delete fill -->
+              <path
+                id="dark1"
+                opacity="0.7"
+                d="M79.5 45.6699C82.8333 47.5944 82.8333 52.4056 79.5 54.3301L57 67.3205C53.6667 69.245 49.5 66.8394 49.5 62.9904L49.5 37.0096C49.5 33.1606 53.6667 30.755 57 32.6795L79.5 45.6699Z"
+              />
+              <!-- delete fill -->
+            </g>
+            <g id="light">
+              <path
+                id="light1"
+                opacity="0.7"
+                d="M54.5 45.6699C57.8333 47.5944 57.8333 52.4056 54.5 54.3301L32 67.3205C28.6667 69.245 24.5 66.8394 24.5 62.9904L24.5 37.0096C24.5 33.1606 28.6667 30.755 32 32.6795L54.5 45.6699Z"
+              />
+              <!-- delete fill -->
+            </g>
+          </g>
+        </svg>
+
+        <h1>Lorem Ipsum</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tenetur
+          harum qui! Sequi nam delectus nihil, quos inventore quisquam fuga.
+        </p>
+      </div>
+      <div class="card">
+        <svg
+          width="200"
+          height="300"
+          viewBox="0 0 200 300"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="phone-skeleton">
+            <g id="phone" filter="url(#filter0_d_4_9)">
+              <rect
+                x="30"
+                y="25"
+                width="140"
+                height="250"
+                rx="25"
+                fill="#EEEEEE"
+              />
+            </g>
+            <g id="skeleton">
+              <circle id="avatar" cx="48" cy="50" r="5" fill="#CFCFCF" />
+              <g id="img1">
+                <rect
+                  id="Rectangle 2"
+                  x="43"
+                  y="130"
+                  width="50"
+                  height="50"
+                  rx="5"
+                  fill="#DDDDDD"
+                />
+                <path
+                  id="Intersect"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M43 159V175C43 177.761 45.2386 180 48 180H88C90.7614 180 93 177.761 93 175V160L82 152L72 159L57 145L43 159Z"
+                  fill="#BBBBBB"
+                />
+              </g>
+              <g id="img2">
+                <rect
+                  id="Rectangle 2_2"
+                  x="43"
+                  y="195"
+                  width="50"
+                  height="50"
+                  rx="5"
+                  fill="#DDDDDD"
+                />
+                <path
+                  id="Intersect_2"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M43 224V240C43 242.761 45.2386 245 48 245H88C90.7614 245 93 242.761 93 240V225L82 217L72 224L57 210L43 224Z"
+                  fill="#BBBBBB"
+                />
+              </g>
+              <g id="img3">
+                <rect
+                  id="Rectangle 2_3"
+                  x="108"
+                  y="195"
+                  width="50"
+                  height="50"
+                  rx="5"
+                  fill="#DDDDDD"
+                />
+                <path
+                  id="Intersect_3"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M108 224V240C108 242.761 110.239 245 113 245H153C155.761 245 158 242.761 158 240V225L147 217L137 224L122 210L108 224Z"
+                  fill="#BBBBBB"
+                />
+              </g>
+              <g id="img4">
+                <rect
+                  id="Rectangle 2_4"
+                  x="108"
+                  y="130"
+                  width="50"
+                  height="50"
+                  rx="5"
+                  fill="#DDDDDD"
+                />
+                <path
+                  id="Intersect_4"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M108 159V175C108 177.761 110.239 180 113 180H153C155.761 180 158 177.761 158 175V160L147 152L137 159L122 145L108 159Z"
+                  fill="#BBBBBB"
+                />
+              </g>
+              <g id="hamburger">
+                <rect
+                  id="Rectangle 3"
+                  x="148"
+                  y="45"
+                  width="10"
+                  height="2"
+                  fill="#CFCFCF"
+                />
+                <rect
+                  id="Rectangle 4"
+                  x="148"
+                  y="48"
+                  width="10"
+                  height="2"
+                  fill="#CFCFCF"
+                />
+                <rect
+                  id="Rectangle 5"
+                  x="148"
+                  y="51"
+                  width="10"
+                  height="2"
+                  fill="#CFCFCF"
+                />
+              </g>
+              <rect
+                id="Rectangle 6"
+                x="43"
+                y="65"
+                width="30"
+                height="10"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 9"
+                x="43"
+                y="80"
+                width="45"
+                height="10"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 12"
+                x="70"
+                y="100"
+                width="60"
+                height="15"
+                rx="7.5"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 10"
+                x="93"
+                y="80"
+                width="40"
+                height="10"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 11"
+                x="138"
+                y="80"
+                width="20"
+                height="10"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 7"
+                x="78"
+                y="65"
+                width="35"
+                height="10"
+                fill="#CFCFCF"
+              />
+              <rect
+                id="Rectangle 8"
+                x="118"
+                y="65"
+                width="40"
+                height="10"
+                fill="#CFCFCF"
+              />
+            </g>
+            <g id="bolt">
+              <g id="bolt4" style="--order: 5">
+                <rect
+                  id="Rectangle 14"
+                  x="150"
+                  y="187"
+                  width="15"
+                  height="15"
+                  rx="7.5"
+                  fill="#4FBBFF"
+                />
+                <g id="bxs:bolt">
+                  <path
+                    id="Vector"
+                    d="M160.153 193.333H158.417L158.753 191.319C158.763 191.259 158.759 191.198 158.743 191.139C158.727 191.081 158.699 191.027 158.659 190.981C158.62 190.934 158.572 190.897 158.517 190.872C158.462 190.846 158.402 190.833 158.341 190.833H156.195C156.096 190.833 156.001 190.868 155.925 190.932C155.85 190.996 155.8 191.084 155.784 191.181L155.089 195.348C155.079 195.408 155.082 195.469 155.098 195.527C155.114 195.585 155.143 195.64 155.182 195.686C155.221 195.732 155.27 195.769 155.325 195.795C155.38 195.82 155.439 195.833 155.5 195.833H157.167V199.167L160.504 193.975C160.545 193.912 160.567 193.84 160.57 193.765C160.573 193.69 160.555 193.616 160.519 193.55C160.483 193.485 160.431 193.43 160.366 193.392C160.302 193.353 160.228 193.333 160.153 193.333Z"
+                    fill="white"
+                  />
+                </g>
+              </g>
+              <g id="bolt3" style="--order: 4">
+                <rect
+                  id="Rectangle 14_2"
+                  x="85"
+                  y="187"
+                  width="15"
+                  height="15"
+                  rx="7.5"
+                  fill="#4FBBFF"
+                />
+                <g id="bxs:bolt_2">
+                  <path
+                    id="Vector_2"
+                    d="M95.1533 193.333H93.4167L93.7525 191.319C93.7625 191.259 93.7593 191.198 93.7433 191.139C93.7272 191.081 93.6986 191.027 93.6595 190.981C93.6203 190.934 93.5716 190.897 93.5166 190.872C93.4616 190.846 93.4018 190.833 93.3412 190.833H91.1946C91.096 190.833 91.0006 190.868 90.9254 190.932C90.8502 190.996 90.8 191.084 90.7837 191.181L90.0892 195.348C90.0792 195.408 90.0823 195.469 90.0984 195.527C90.1144 195.585 90.143 195.64 90.1821 195.686C90.2212 195.732 90.2699 195.769 90.3248 195.795C90.3797 195.82 90.4395 195.833 90.5 195.833H92.1667V199.167L95.5042 193.975C95.5447 193.912 95.5675 193.84 95.5701 193.765C95.5728 193.69 95.5553 193.616 95.5194 193.55C95.4835 193.485 95.4305 193.43 95.3661 193.392C95.3017 193.353 95.2282 193.333 95.1533 193.333Z"
+                    fill="white"
+                  />
+                </g>
+              </g>
+              <g id="bolt2" style="--order: 3">
+                <rect
+                  id="Rectangle 14_3"
+                  x="150"
+                  y="122"
+                  width="15"
+                  height="15"
+                  rx="7.5"
+                  fill="#4FBBFF"
+                />
+                <g id="bxs:bolt_3">
+                  <path
+                    id="Vector_3"
+                    d="M160.153 128.333H158.417L158.753 126.319C158.763 126.259 158.759 126.198 158.743 126.139C158.727 126.081 158.699 126.027 158.659 125.981C158.62 125.934 158.572 125.897 158.517 125.872C158.462 125.846 158.402 125.833 158.341 125.833H156.195C156.096 125.833 156.001 125.868 155.925 125.932C155.85 125.996 155.8 126.084 155.784 126.181L155.089 130.348C155.079 130.408 155.082 130.469 155.098 130.527C155.114 130.585 155.143 130.64 155.182 130.686C155.221 130.732 155.27 130.769 155.325 130.795C155.38 130.82 155.439 130.833 155.5 130.833H157.167V134.167L160.504 128.975C160.545 128.912 160.567 128.84 160.57 128.765C160.573 128.69 160.555 128.616 160.519 128.55C160.483 128.485 160.431 128.43 160.366 128.392C160.302 128.353 160.228 128.333 160.153 128.333Z"
+                    fill="white"
+                  />
+                </g>
+              </g>
+              <g id="bolt1" style="--order: 2">
+                <rect
+                  id="Rectangle 14_4"
+                  x="85"
+                  y="122"
+                  width="15"
+                  height="15"
+                  rx="7.5"
+                  fill="#4FBBFF"
+                />
+                <g id="bxs:bolt_4">
+                  <path
+                    id="Vector_4"
+                    d="M95.1533 128.333H93.4167L93.7525 126.319C93.7625 126.259 93.7593 126.198 93.7433 126.139C93.7272 126.081 93.6986 126.027 93.6595 125.981C93.6203 125.934 93.5716 125.897 93.5166 125.872C93.4616 125.846 93.4018 125.833 93.3412 125.833H91.1946C91.096 125.833 91.0006 125.868 90.9254 125.932C90.8502 125.996 90.8 126.084 90.7837 126.181L90.0892 130.348C90.0792 130.408 90.0823 130.469 90.0984 130.527C90.1144 130.585 90.143 130.64 90.1821 130.686C90.2212 130.732 90.2699 130.769 90.3248 130.795C90.3797 130.82 90.4395 130.833 90.5 130.833H92.1667V134.167L95.5042 128.975C95.5447 128.912 95.5675 128.84 95.5701 128.765C95.5728 128.69 95.5553 128.616 95.5194 128.55C95.4835 128.485 95.4305 128.43 95.3661 128.392C95.3017 128.353 95.2282 128.333 95.1533 128.333Z"
+                    fill="white"
+                  />
+                </g>
+              </g>
+              <g id="bolt0" style="--order: 1">
+                <rect
+                  id="Rectangle 13"
+                  x="70"
+                  y="100"
+                  width="60"
+                  height="15"
+                  rx="7.5"
+                  fill="#4FBBFF"
+                />
+                <g id="bxs:bolt_5">
+                  <path
+                    id="Vector_5"
+                    d="M102.153 106.333H100.417L100.752 104.319C100.762 104.259 100.759 104.198 100.743 104.139C100.727 104.081 100.699 104.027 100.659 103.981C100.62 103.934 100.572 103.897 100.517 103.872C100.462 103.846 100.402 103.833 100.341 103.833H98.1946C98.096 103.833 98.0006 103.868 97.9254 103.932C97.8502 103.996 97.8 104.084 97.7837 104.181L97.0892 108.348C97.0792 108.408 97.0823 108.469 97.0984 108.527C97.1144 108.585 97.143 108.64 97.1821 108.686C97.2212 108.732 97.2699 108.769 97.3248 108.795C97.3797 108.82 97.4395 108.833 97.5 108.833H99.1667V112.167L102.504 106.975C102.545 106.912 102.567 106.84 102.57 106.765C102.573 106.69 102.555 106.616 102.519 106.55C102.483 106.485 102.431 106.43 102.366 106.392C102.302 106.353 102.228 106.333 102.153 106.333Z"
+                    fill="white"
+                  />
+                </g>
+              </g>
+            </g>
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_4_9"
+              x="26"
+              y="25"
+              width="148"
+              height="258"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="4" />
+              <feGaussianBlur stdDeviation="2" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_4_9"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow_4_9"
+                result="shape"
+              />
+            </filter>
+          </defs>
+        </svg>
+        <h1>Lorem Ipsum</h1>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
+          explicabo quod beatae rerum nesciunt expedita labore delectus aliquam
+          fugit aut. Dolore doloribus quas non molestiae!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const triangles = document.getElementById('triangles')
+
+      triangles.onclick = (e) => {
+        const colors = ['red', 'green', 'blue', 'orange', 'salmon']
+        const rando = () => colors[Math.floor(Math.random() * colors.length)]
+        document.documentElement.style.cssText = `
+       --dark-color: ${rando()};
+       --light-color: ${rando()}; 
+      `
+      }
+    </script>
+  </body>
+</html>
